@@ -11,25 +11,33 @@ function App() {
     const { value, name } = e.target;
 
     setContact((prevValue) => {
-      if (name === "fName") {
-        return {
-          fName: value,
-          lName: prevValue.lName,
-          email: prevValue.email
-        };
-      } else if (name === "lName") {
-        return {
-          fName: prevValue.fName,
-          lName: value,
-          email: prevValue.email
-        };
-      } else if (name === "email") {
-        return {
-          fName: prevValue.fName,
-          lName: prevValue.lName,
-          email: value
-        };
-      }
+      // if (name === "fName") {
+      //   return {
+      //     fName: value,
+      //     lName: prevValue.lName,
+      //     email: prevValue.email
+      //   };
+      // } else if (name === "lName") {
+      //   return {
+      //     fName: prevValue.fName,
+      //     lName: value,
+      //     email: prevValue.email
+      //   };
+      // } else if (name === "email") {
+      //   return {
+      //     fName: prevValue.fName,
+      //     lName: prevValue.lName,
+      //     email: value
+      //   };
+      // }
+
+      //using a spread operator
+      return {
+        //keep all the previous object's value
+        ...prevValue,
+        //pair the name with a new value
+        [name]: value
+      };
     });
   }
 
